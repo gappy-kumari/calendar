@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="c.css">
+</head>
+<body>
+    <div id="box">
+        <h1 id="h">Calendar</h1>
+        <h2 id="h">Today is :</h2>
+        <label id="c">Year :</label><br>
+        <input class="in" id="year" type="text" readonly><br><br>
+        <label id="c" >Month:</label><br>
+        <input class="in" id="month" type="text" readonly><br><br>
+        <label id="c">Date :</label><br>
+        <input class="in" id="date" type="text" readonly><br><br>
+        <label id="c">Day :</label><br>
+        <input class="in" id="day" type="text" readonly><br><br>
+        <label id="c">Time :</label>
+        <span class="tym" id="hrs"></span>
+        <span class="tym" id="m"></span>
+        <span class="tym" id="s"></span>
+
+
+    </div>
+    
+</body>
+<script>
+    let wd=["sun","mon","tue","wed","thu","fri","sat"];
+    let mm=["jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec"];
+    var today = new Date();
+    var y = today.getFullYear();
+    document.getElementById('year').value = y;
+    var m = today.getMonth();
+    document.getElementById('month').value = mm[m];
+    var dd = today.getDate();
+    document.getElementById('date').value = dd;
+    var day = today.getDay();
+    document.getElementById('day').value = wd[day];
+    function tt(){
+        var mn = new Date();
+        var hrs = mn.getHours();
+        document.getElementById('hrs').innerHTML = hrs+" : ";
+        var min = mn.getMinutes();
+        document.getElementById('m').innerHTML = min+" : ";
+        var sec = mn.getSeconds();
+        document.getElementById('s').innerHTML = sec;
+        setTimeout(tt,1000)
+    };
+    
+    tt();
+
+
+    
+</script>
+</html>
